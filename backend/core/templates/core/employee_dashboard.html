@@ -1,0 +1,28 @@
+<h1>Welcome {{ employee.name }}</h1> 
+
+<form method="get">
+  <label for="month">Month:</label>
+  <select name="month" id="month">
+    <option value="">-- All --</option>
+    {% for m in months_list %}
+      <option value="{{ m }}" {% if request.GET.month == m %}selected{% endif %}>{{ m }}</option>
+    {% endfor %}
+  </select>
+
+  <label for="year">Year:</label>
+  <input type="number" name="year" id="year" value="{{ request.GET.year }}">
+
+  <button type="submit">Filter</button>
+</form>
+
+<h2>Your Payslips:</h2>
+<ul>
+  {% for payslip in payslips %}
+    <li> 
+      {{ payslip.month }} {{ payslip.year }} - 
+      <a href="{{ payslip.pdf_file.url }}">Download</a>
+    </li>
+  {% empty %}
+    <li>No payslips found for the selected period.</li> 
+  {% endfor %}
+</ul>
