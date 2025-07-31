@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles', 
+    'rest_framework', 
     'corsheaders', 
     'core' 
 ]
@@ -54,14 +55,25 @@ MIDDLEWARE = [
 ] 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080" 
+    "http://localhost:8080",
 ]
 
 CSRF_ALLOWED_ORIGINS = [
-    'http://localhost:8080' 
+    'http://localhost:8080',
 ]
 
-CORS_ALLOW_CREDENTIALS = True 
+CORS_ALLOW_CREDENTIALS = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+
+SESSION_COOKIE_SAMESITE = None
+SESSION_COOKIE_SECURE = False
+
+
 
 ROOT_URLCONF = 'payslip_portal_backend.urls'
 
@@ -103,6 +115,8 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db' 
 
 
 
@@ -148,5 +162,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/' 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

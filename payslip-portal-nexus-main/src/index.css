@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Payslip Portal Color Scheme - Professional Blue/Teal */
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Primary: Professional Blue */
+    --primary: 213 94% 68%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 213 84% 58%;
+
+    /* Secondary: Soft Gray-Blue */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    /* Muted: Light Gray */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Accent: Teal */
+    --accent: 173 58% 39%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 173 48% 29%;
+
+    /* Success: Green */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning: Amber */
+    --warning: 43 96% 56%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Destructive: Red */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders and Inputs */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 213 94% 68%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode - Professional Dark Blue/Gray */
+    --background: 220 27% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 27% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 27% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary: Bright Blue for Dark Mode */
+    --primary: 213 94% 68%;
+    --primary-foreground: 220 27% 8%;
+    --primary-hover: 213 84% 78%;
+
+    /* Secondary: Dark Gray */
+    --secondary: 220 27% 16%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted: Medium Dark Gray */
+    --muted: 220 27% 16%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    /* Accent: Bright Teal */
+    --accent: 173 58% 49%;
+    --accent-foreground: 220 27% 8%;
+    --accent-hover: 173 68% 59%;
+
+    /* Success: Bright Green */
+    --success: 142 76% 46%;
+    --success-foreground: 220 27% 8%;
+
+    /* Warning: Bright Amber */
+    --warning: 43 96% 66%;
+    --warning-foreground: 220 27% 8%;
+
+    /* Destructive: Bright Red */
+    --destructive: 0 84.2% 70.2%;
+    --destructive-foreground: 220 27% 8%;
+
+    /* Borders and Inputs */
+    --border: 220 27% 20%;
+    --input: 220 27% 20%;
+    --ring: 213 94% 68%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
