@@ -54,14 +54,31 @@ MIDDLEWARE = [
 ] 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080" 
+    "http://localhost:8080",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:8080"
 ]
 
 CSRF_ALLOWED_ORIGINS = [
-    'http://localhost:8080' 
+    'http://localhost:8080',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:8080'
 ]
 
-CORS_ALLOW_CREDENTIALS = True 
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+] 
 
 ROOT_URLCONF = 'payslip_portal_backend.urls'
 
@@ -149,4 +166,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/' 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+
+# Session Configuration
+SESSION_COOKIE_SECURE = False  # Set to True in production with HTTPS
+SESSION_COOKIE_HTTPONLY = False  # Allow JavaScript access
+SESSION_COOKIE_SAMESITE = 'Lax'  # Allow cross-site requests
+SESSION_COOKIE_DOMAIN = None  # Allow all domains in development
+SESSION_COOKIE_AGE = 86400  # 24 hours in seconds 
 

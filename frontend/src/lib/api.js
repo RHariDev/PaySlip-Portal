@@ -8,7 +8,7 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true, // Include cookies for CSRF
+  withCredentials: true, // Include cookies for session management
 });
 
 // Add CSRF token to requests if available

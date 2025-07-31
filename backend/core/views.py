@@ -311,6 +311,33 @@ def employee_login(request):
 
 @csrf_exempt
 @require_GET
+def check_session(request):
+    """Check if user session is valid"""
+    emp_id = request.session.get('employee_id')
+    if not emp_id:
+        return JsonResponse({'success': False, 'message': 'No active session'}, status=401)
+    
+    try:
+        employee = Employee.objects.get(id=emp_id)
+        return JsonResponse({
+            'success': True,
+            'employee': {
+                'id': employee.id,
+                'name': employee.name
+            }
+        })
+    except Employee.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'Employee not found'}, status=401)
+
+@csrf_exempt
+@require_POST
+def logout(request):
+    """Logout user and clear session"""
+    request.session.flush()
+    return JsonResponse({'success': True, 'message': 'Logged out successfully'})
+
+@csrf_exempt
+@require_GET
 def employee_dashboard(request):
     emp_id = request.session.get('employee_id')
     if not emp_id:
